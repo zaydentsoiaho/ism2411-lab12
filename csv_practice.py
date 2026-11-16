@@ -1,4 +1,5 @@
 import csv 
+from datetime import datetime
 
 # Exercise 1: sales.csv is in the data folder. 
 
@@ -92,3 +93,31 @@ with open("data/sales.csv", newline="") as file:
         print(f"{product}: {quantity} units x ${price:.2f} = ${total:.2f}")
 
 print(f"Total revenue: ${dict_total_revenue:.2f}")
+
+
+# Exercise 7: Summarize revenue by product. 
+print("\nExercise 7")
+
+summary = {}
+
+with open("data/sales.csv", newline="") as file:
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        product = row["product"]
+        price = float(row["price"])
+        quantity = int(row["quantity"])
+        total = price * quantity 
+
+        summary[product] = summary.get(product,0) + total
+
+for product in sorted(summary):
+    print(f"{product}: ${summary[product]:.2f}")
+
+# Exercise 8: Append the date, time, and the total revenue to a log. 
+print("\nExercise 8")
+
+with open("data/run_log.txt", "a") as log_file:
+    log_file.write(f"{datetime.now()} - Total revenue: ${total_revenue:.2f}\n")
+
+print("Added one entry to data/run_log.txt.")
