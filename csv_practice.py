@@ -1,3 +1,13 @@
+#Reflection 1: 
+# Python and Excel can both calculate totals and filter through sales data.
+# Python makes it easier to repeat ther same steps across many files automatically
+# Excel makes it way easier to inspect cells and to make quick edits or make mock up charts without coding 
+
+#Reflection 2: 
+# A store like Spirit Halloween could use an append-more log to record sales totals. 
+# Each entry would include the date, time, and the revenue so the managers can review the past results. 
+# Append mode adds new entries without getting rid of the previous records. 
+
 import csv 
 from datetime import datetime
 
